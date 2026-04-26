@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anita & Delfi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+html, body, body * {
+  font-family: 'Cormorant Garamond', serif !important;
+  color: #777 !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background-image: url('papel2.png');
+  background-size: 600px auto;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+h1 {
+  color: #000 !important;
+  font-size: 56px;
+  letter-spacing: 4px;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 48px;
+  font-style: italic;
+  margin-top: 40px;
+}
+
+.date {
+  margin-top: 50px;
+  font-size: 36px;
+  letter-spacing: 6px;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.section img {
+  width: 80%;
+  max-width: 420px;
+  margin-bottom: 60px;
+}
+
+.text-section,
+.bloque-compacto {
+  padding: 80px 20px;
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pista {
+  padding-top: 10px !important;
+}
+
+p {
+  font-size: 26px;
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 12px auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.button,
+button.button,
+a.button {
+  background-color: #4a4a4a !important;
+  color: white !important;
+  padding: 16px 36px;
+  border-radius: 30px;
+  font-size: 26px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.bg-image {
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(100%);
+}
+
+.contador {
+  display: flex;
+  gap: 28px;
+  margin: 60px 0;
+}
+
+.circulo {
+  position: relative;
+  width: 110px;
+  height: 110px;
+}
+
+.circulo svg {
+  width: 110px;
+  height: 110px;
+  transform: rotate(-90deg);
+}
+
+.circulo circle {
+  fill: none;
+  stroke: #999;
+  stroke-width: 1.8;
+  stroke-dasharray: 280;
+  stroke-dashoffset: 50;
+}
+
+.contenido {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenido strong {
+  font-size: 34px;
+  font-weight: 300;
+}
+
+.photo-strip img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.icono {
+  width: 200px;
+  margin: 40px auto;
+  display: block;
+}
+
+.icono-auto {
+  width: 320px;
+  margin: 50px auto;
+  display: block;
+}
+
+.baile-grande {
+  width: 350px !important;
+  max-width: 90% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 20px auto 10px auto !important;
+}
+
+.foto-final {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-contenido {
+  position: relative;
+  background: white;
+  padding: 35px 28px;
+  border-radius: 24px;
+  width: 85%;
+  max-width: 520px;
+  text-align: center;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  font-size: 34px;
+  cursor: pointer;
+}
+
+.modal-contenido input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  font-size: 24px;
+  margin: 12px 0 24px 0;
+}
+
+.modal-contenido label {
+  display: block;
+  font-size: 26px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.opcion {
+  font-size: 26px;
+  margin: 14px 0;
+  text-align: left;
+}
+
+.opcion input {
+  transform: scale(1.4);
+  margin-right: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="section">
+  <img src="copas.png">
+  <h1>ANITA & DELFI</h1>
+  <div class="subtitle">¡Nos casamos!</div>
+  <div class="date">26 • 09 • 26</div>
+</div>
+
+<div class="bg-image" style="background-image:url('foto-manos.jpg')"></div>
+
+<div class="text-section">
+  <div class="contador">
+    <div class="circulo"><svg viewBox="0 0 110 110"><circle cx="55" cy="55" r="45"/></svg><div class="contenido"><strong id="dias"></strong></div></div>
+    <div class="circulo"><svg viewBox="0 0 110 110"><circle cx="55" cy="55" r="45"/></svg><div class="contenido"><strong id="horas"></strong></div></div>
+    <div class="circulo"><svg viewBox="0 0 110 110"><circle cx="55" cy="55" r="45"/></svg><div class="contenido"><strong id="minutos"></strong></div></div>
+    <div class="circulo"><svg viewBox="0 0 110 110"><circle cx="55" cy="55" r="45"/></svg><div class="contenido"><strong id="segundos"></strong></div></div>
+  </div>
+
+  <p style="font-style: italic;">And together they built a life they love</p>
+</div>
+
+<div class="photo-strip">
+  <img src="foto-playa-anteojos.jpg">
+  <img src="foto-nieve.jpg">
+  <img src="foto-playa-sweater.jpg">
+</div>
+
+<div class="bloque-compacto">
+  <h2>Ceremonia & fiesta</h2>
+  <p>26 de Septiembre</p>
+  <p>16:30 hs</p>
+  <p>Las Caballerizas</p>
+  <p>Lobos, Buenos Aires</p>
+
+  <button class="button" onclick="abrirMapa()">Ver ubicación</button>
+
+  <img src="auto.png" class="icono-auto">
+
+  <h2>Dress Code</h2>
+  <p>Elegante</p>
+  <p>Nuestro casamiento será al aire libre con recepción sobre césped. Sugerimos llevar abrigo.</p>
+
+  <img src="anillos3.png?v=3" class="icono">
+
+  <p style="font-style: italic;">
+    Esperamos que puedas estar con nosotras este día.<br>
+    Confirmanos tu asistencia
+  </p>
+
+  <button class="button" onclick="abrirAsistencia()">Confirmar asistencia</button>
+</div>
+
+<div class="bg-image" style="background-image:url('foto-anillo.jpg')"></div>
+
+<div class="text-section">
+  <p>
+    Para nosotras el mejor regalo es compartir con los que más queremos,
+    pero si tenés ganas, podés ayudarnos con nuestra luna de miel
+  </p>
+
+  <button class="button" onclick="abrirBanco()">Ver datos bancarios</button>
+
+  <img src="baile.png?v=2" class="baile-grande">
+</div>
+
+<div class="text-section pista">
+  <h2>¡Queremos una pista llena!</h2>
+  <p>Decinos qué canciones no pueden faltar en nuestra fiesta</p>
+  <button class="button" onclick="abrirCancion()">Sugerir canción</button>
+</div>
+
+<img src="foto-caras.jpg" class="foto-final">
+
+<div class="text-section">
+  <h2 style="font-style: italic;">Preparate, se viene un FIESTÓN!</h2>
+</div>
+
+<div id="modalMapa" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarMapa()">×</span>
+    <h2>¿Cómo querés llegar?</h2>
+
+    <a class="button" href="https://www.google.com/maps/dir/?api=1&destination=Las+Caballerizas+Lobos+Buenos+Aires" target="_blank">Google Maps</a>
+
+    <a class="button" href="https://www.waze.com/es-419/live-map/directions/ar/provincia-de-buenos-aires/lobos/las-caballerizas-or-salon-de-bodas-y-eventos-de-campo-en-lobos?navigate=yes&to=place.ChIJjYXjaiwDvZURGaaqOcMPiJY" target="_blank">Waze</a>
+  </div>
+</div>
+
+<div id="modalAsistencia" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarAsistencia()">×</span>
+
+    <h2>Confirmación de Asistencia</h2>
+    <p>Ingresá tus datos y confirmá tu asistencia</p>
+
+    <form onsubmit="enviarAsistencia(event)">
+      <label>Nombre y Apellido *</label>
+      <input type="text" id="nombre" placeholder="Tu respuesta" required>
+
+      <label>Asistencia *</label>
+      <div class="opcion"><input type="radio" name="asistencia" value="Sí, confirmo" required> Sí, confirmo</div>
+      <div class="opcion"><input type="radio" name="asistencia" value="No podré asistir"> No podré asistir</div>
+
+      <label>Restricciones alimenticias *</label>
+      <div class="opcion"><input type="radio" name="comida" value="Sin restricciones" required> Sin restricciones</div>
+      <div class="opcion"><input type="radio" name="comida" value="Vegetariano/a"> Vegetariano/a</div>
+      <div class="opcion"><input type="radio" name="comida" value="Vegano/a"> Vegano/a</div>
+      <div class="opcion"><input type="radio" name="comida" value="Celíaco/a"> Celíaco/a</div>
+
+      <button type="submit" class="button">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<div id="modalBanco" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarBanco()">×</span>
+    <h2>Datos bancarios</h2>
+    <p>Alias: completar.alias</p>
+    <p>CBU/CVU: completar</p>
+    <p>Titular: completar</p>
+  </div>
+</div>
+
+<div id="modalCancion" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarCancion()">×</span>
+
+    <h2>Sugerí una canción</h2>
+
+    <form onsubmit="enviarCancion(event)">
+      <input type="text" id="cancion" placeholder="Ej: Artista – Canción" required>
+      <button type="submit" class="button">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<script>
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbzQ_nm-a1ElMiGCwH0eM78hGeBmSkiCLNVYOW5_L3tV85-djlRkPm5siXyP0ZfJ86il/exec";
+
+const fecha = new Date("2026-09-26T16:30:00");
+
+function actualizar() {
+  const ahora = new Date();
+  const diff = fecha - ahora;
+
+  document.getElementById("dias").innerText = Math.floor(diff/(1000*60*60*24));
+  document.getElementById("horas").innerText = Math.floor((diff/(1000*60*60))%24);
+  document.getElementById("minutos").innerText = Math.floor((diff/(1000*60))%60);
+  document.getElementById("segundos").innerText = Math.floor((diff/1000)%60);
+}
+
+setInterval(actualizar,1000);
+actualizar();
+
+function abrirMapa(){document.getElementById("modalMapa").style.display="flex";}
+function cerrarMapa(){document.getElementById("modalMapa").style.display="none";}
+
+function abrirAsistencia(){document.getElementById("modalAsistencia").style.display="flex";}
+function cerrarAsistencia(){document.getElementById("modalAsistencia").style.display="none";}
+
+function abrirBanco(){document.getElementById("modalBanco").style.display="flex";}
+function cerrarBanco(){document.getElementById("modalBanco").style.display="none";}
+
+function abrirCancion(){document.getElementById("modalCancion").style.display="flex";}
+function cerrarCancion(){document.getElementById("modalCancion").style.display="none";}
+
+function enviarAsistencia(event) {
+  event.preventDefault();
+
+  const nombre = document.getElementById("nombre").value;
+  const asistencia = document.querySelector('input[name="asistencia"]:checked').value;
+  const comida = document.querySelector('input[name="comida"]:checked').value;
+
+  fetch(SHEETS_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      nombre: nombre,
+      asistencia: asistencia,
+      comida: comida,
+      cancion: ""
+    })
+  })
+  .then(() => {
+    alert("¡Gracias! Tu respuesta fue registrada 💜");
+    cerrarAsistencia();
+    event.target.reset();
+  })
+  .catch(() => {
+    alert("Hubo un error. Probá de nuevo.");
+  });
+}
+
+function enviarCancion(event) {
+  event.preventDefault();
+
+  const cancion = document.getElementById("cancion").value;
+
+  fetch(SHEETS_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      nombre: "",
+      asistencia: "",
+      comida: "",
+      cancion: cancion
+    })
+  })
+  .then(() => {
+    alert("¡Gracias por la canción! 🎶");
+    cerrarCancion();
+    event.target.reset();
+  })
+  .catch(() => {
+    alert("Hubo un error. Probá de nuevo.");
+  });
+}
+
+window.addEventListener("click", function(event) {
+  if (event.target.classList.contains("modal")) {
+    event.target.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>
